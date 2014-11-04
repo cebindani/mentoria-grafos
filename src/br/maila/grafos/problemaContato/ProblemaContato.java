@@ -71,6 +71,36 @@ public class ProblemaContato {
 		return colunas;
 	}
 
+
+	public int obterLinhaMaisLeve(List<Integer> colunasMaisLeves) {
+
+		int somaLinhaMaisLeve = Integer.MAX_VALUE;
+		int linha=0;
+		for (int i = 0; i < matrizDeRelacaoContato[0].length; i++) {
+			
+			if (linhasRemovidas.contains(i))
+				continue;
+			int soma = 0;
+			for (int j = 0; j < matrizDeRelacaoContato.length; j++) {
+				soma += getMatrizDeRelacaoCotato()[i][j];
+			}
+			if (soma < somaLinhaMaisLeve) {
+				somaLinhaMaisLeve = soma;
+				linha = i;
+			}
+							
+		}
+		return linha;
+	}
+	
+	public int linhaEColunaRemovida(List<Integer> colunasMaisLeves) {
+		int linha = obterLinhaMaisLeve(colunasMaisLeves);
+		
+		
+		
+		return null;
+	}
+	
 	public int[][] getMatrizDeRelacaoCotato() {
 		return matrizDeRelacaoContato;
 	}
@@ -99,28 +129,14 @@ public class ProblemaContato {
 		colunasRemovidas.add(coluna);
 		pesoColunas.remove(coluna);
 	}
-
-	public int obterLinhaMaisLeve(List<Integer> colunasMaisLeves) {
-
-		int somaLinhaMaisLeve = Integer.MAX_VALUE;
-		int linha=0;
-		for (int i = 0; i < matrizDeRelacaoContato[0].length; i++) {
-			
-			if (linhasRemovidas.contains(i))
-				continue;
-			int soma = 0;
-			for (int j = 0; j < matrizDeRelacaoContato.length; j++) {
-				soma += getMatrizDeRelacaoCotato()[i][j];
-			}
-			if (soma < somaLinhaMaisLeve) {
-				somaLinhaMaisLeve = soma;
-				linha = i;
-			}
-							
-		}
-		return linha;
+	
+	public void removerLinha(int linha, int coluna){
+		linhasRemovidas.add(linha);
+		colunasRemovidas.add(coluna);
+		pesoColunas.remove(coluna);
 	}
 
+	
 	public int[][] getMatrizDeRelacaoContato() {
 		return matrizDeRelacaoContato;
 	}
@@ -144,4 +160,5 @@ public class ProblemaContato {
 	public void setPesoColunas(Map<Integer, Integer> pesoColunas) {
 		this.pesoColunas = pesoColunas;
 	}
+
 }

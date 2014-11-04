@@ -49,11 +49,18 @@ public class ProblemaContatoTest {
 		assertEquals(5, colunasMaisLeves.size());
 		assertEquals(2, problemaContato.obterLinhaMaisLeve(colunasMaisLeves));
 		
-		// todo implementar remove linha e coluna, test linha e colunas removidas
-		// todo implementar alg que remove linha e coluna na ordem certa
-		// todo teste que ve que as linhas e colunas removidas estao na ordem certa
-		// todo implementar brow que resolve os paranaue
+		assertEquals(2, problemaContato.linhaEColunaRemovida(colunasMaisLeves));
+		int coluna;
+		int linha = problemaContato.obterLinhaMaisLeve(colunasMaisLeves); //ta errado!
+		problemaContato.removerLinha(linha, coluna);
+		
+		// TODO implementar remove linha e coluna, test linha e colunas removidas
+		// TODO implementar alg que remove linha e coluna na ordem certa
+		// TODO teste que ve que as linhas e colunas removidas estao na ordem certa
+		// TODO implementar brow que resolve os paranaue
 		// (6,1)(4,2)(2,4)...
 	}
+
+	
 	
 }
