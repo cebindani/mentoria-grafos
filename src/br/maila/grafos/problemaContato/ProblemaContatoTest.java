@@ -48,11 +48,28 @@ public class ProblemaContatoTest {
 		List<Integer> colunasMaisLeves = problemaContato.obterColunasMaisLeves();
 		assertEquals(5, colunasMaisLeves.size());
 		assertEquals(2, problemaContato.obterLinhaMaisLeve(colunasMaisLeves));
-		
 		assertEquals(2, problemaContato.linhaEColunaRemovida(colunasMaisLeves));
-		int coluna;
+		System.out.println("Linhas removidas: " + problemaContato.getLinhasRemovidas());
+		System.out.println("Colunas removidas: "+ problemaContato.getColunasRemovidas());
+//		int coluna = 0;
+	}
+	
+	@Test
+	public void encontra(){
+		
+		//TODO: encontrar o motivo dessa bosta remover a coluna 0 em vez da 5!
 		int linha = problemaContato.obterLinhaMaisLeve(colunasMaisLeves); //ta errado!
-		problemaContato.removerLinha(linha, coluna);
+		System.out.println("Linha mais leve "+linha);
+		assertEquals(3, problemaContato.linhaEColunaRemovida(colunasMaisLeves));
+		System.out.println("Linhas removidas: " + problemaContato.getLinhasRemovidas());
+		System.out.println("Colunas removidas: "+ problemaContato.getColunasRemovidas());
+		
+		//problemaContato.removerLinha(linha, coluna);
+		linha = problemaContato.obterLinhaMaisLeve(colunasMaisLeves); //ta errado!
+		System.out.println("Linha mais leve "+linha);
+		assertEquals(5, problemaContato.linhaEColunaRemovida(colunasMaisLeves));
+		System.out.println("Linhas removidas: " + problemaContato.getLinhasRemovidas());
+		System.out.println("Colunas removidas: "+ problemaContato.getColunasRemovidas());
 		
 		// TODO implementar remove linha e coluna, test linha e colunas removidas
 		// TODO implementar alg que remove linha e coluna na ordem certa

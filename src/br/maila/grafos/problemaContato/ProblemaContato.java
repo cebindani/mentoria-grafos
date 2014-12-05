@@ -95,10 +95,18 @@ public class ProblemaContato {
 	
 	public int linhaEColunaRemovida(List<Integer> colunasMaisLeves) {
 		int linha = obterLinhaMaisLeve(colunasMaisLeves);
+		List<Integer> colunas = new ArrayList<Integer>();
 		
-		
-		
-		return null;
+		for (int j = 0; j < matrizDeRelacaoContato.length; j++) {
+			if (matrizDeRelacaoContato[linha][j]==1) {
+				colunas.add(j);
+			}
+			
+		}
+		int coluna = obterColunasMaisLeves().get(0);
+		removerColuna(coluna);
+		removerLinha(linha, coluna);
+		return linha;
 	}
 	
 	public int[][] getMatrizDeRelacaoCotato() {
